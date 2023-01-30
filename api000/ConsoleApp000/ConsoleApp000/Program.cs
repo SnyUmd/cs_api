@@ -14,6 +14,7 @@ var body = JsonConvert.SerializeObject(rb);
 var client = new HttpClient();
 // POST メソッドで JSON の Body のリクエストを投げる
 var response = await client.PostAsJsonAsync(
+    //"http://localhost:5130/?apiKey=hogehoge", rb);
     "https://localhost:7029/?apiKey=hogehoge", rb);
     //new RequestBody { Direction = "left", num = "eight"});
 // レスポンスのステータスコードが成功していたら Answer の値を出力
