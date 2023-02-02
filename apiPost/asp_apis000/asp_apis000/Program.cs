@@ -65,6 +65,15 @@ string[] nums = { "one","two", "three", "four", "five", "six", "seven", "eight",
 */
 
 //app.Run();
+
+
+/* http://localhost:5130/?apiKey=hogehoge
+ * https://localhost:7029/?apiKey=hogehoge
+ * {
+ *      "Direction":"left",
+ *      "Num":"two"
+ * }
+*/
 clsApiPost clsAP = new(ref app);
 clsAP.setPostApi(ref app, Directions, nums);
 Console.WriteLine("post api run");
@@ -101,31 +110,31 @@ class clsApiPost
             if (apiKey != "hogehoge") return Results.Unauthorized();
             // àÍâûéÛÇØÇΩéøñ‚ÇÕÉçÉOÇ…èoÇµÇƒÇ®Ç≠
             logger.LogInformation("{direction}", body.Direction);
-            logger.LogInformation("{num}", body.num);
+            logger.LogInformation("{num}", body.Num);
 
             ans += "{";
             for (int i = 0; i < directions.Length; i++)
             {
                 if (body.Direction == directions[i])
                 {
-                    ans += $"Direction:{directions[i]},";
+                    ans += $"\"Direction\":\"{directions[i]}\",";
                     break;
                 }
                 else if (i == directions.Length - 1)
                 {
-                    ans += "Direction:error,";
+                    ans += "\"Direction:error\":\"error\",";
                 }
             }
             for (int i = 0; i < ary_nums.Length; i++)
             {
-                if (body.num == ary_nums[i])
+                if (body.Num == ary_nums[i])
                 {
-                    ans += $"num:{i + 1}";
+                    ans += $"\"Num\":\"{i + 1}\"";
                     break;
                 }
                 else if (i == ary_nums.Length - 1)
                 {
-                    ans += "num:error";
+                    ans += "\"Num\":\"error\"";
                 }
             }
             ans += "}";
@@ -140,7 +149,7 @@ class clsApiPost
 class RequestBody
 {
     public string? Direction { get; set; }
-    public string? num { get; set; }
+    public string? Num { get; set; }
 }
 
 class Response

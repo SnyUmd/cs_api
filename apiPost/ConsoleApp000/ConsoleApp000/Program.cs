@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 RequestBody rb = new RequestBody();
 rb.Direction = "left";
-rb.num = "two";
+rb.Num = "two";
 var body = JsonConvert.SerializeObject(rb);
 
 // Web API を呼ぶための HttpClient を作る
@@ -21,14 +21,15 @@ var response = await client.PostAsJsonAsync(
 if (response.IsSuccessStatusCode)
 {
     var responseBody = await response.Content.ReadFromJsonAsync<Response>();
-    Console.WriteLine(responseBody?.Answer);
+    Console.WriteLine($"body : {body}");
+    Console.WriteLine($"response : {responseBody?.Answer}");
 }
 
 // リクエストとレスポンス
 class RequestBody
 {
     public string? Direction { get; set; }
-    public string? num { get; set; }
+    public string? Num { get; set; }
 }
 
 class Response
