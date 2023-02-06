@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 string[] Directions = { "up", "down", "left", "right" };
-string[] DirectionAnsuwer = { "↑", "↓", "←", "→" };
 string[] nums = { "one","two", "three", "four", "five", "six", "seven", "eight","nine"};
 
 /*
@@ -117,7 +116,7 @@ class clsApiPost
             {
                 if (body.Direction == directions[i])
                 {
-                    ans += $"\"Direction\":\"{directions[i]}\",";
+                    ans += $"\"Direction\":\"{Response.DirectionAnsuwer[i]}\",";
                     break;
                 }
                 else if (i == directions.Length - 1)
@@ -143,6 +142,14 @@ class clsApiPost
             return Results.Ok(new Response { Answer = ans });
         });
     }
+
+    public void setGetApi(ref WebApplication wa, string[] directions, string[] ary_nums)
+    {
+        wa.MapGet("/", (string? sts) =>
+        {
+        });
+
+    }
 }
 
 // リクエストとレスポンス
@@ -155,5 +162,7 @@ class RequestBody
 class Response
 {
     public string? Answer { get; set; }
+    public static string[] DirectionAnsuwer = { "↑", "↓", "←", "→" };
+
 }
 

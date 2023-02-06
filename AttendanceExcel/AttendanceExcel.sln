@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31611.283
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceExcel", "AttendanceExcel\AttendanceExcel.csproj", "{CD705396-CCEE-4E72-8B8A-67A545DFDC82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiCtrl", "..\..\MauiCtrl\MauiCtrl\MauiCtrl\MauiCtrl.csproj", "{2856F8BA-591F-4F4D-A99E-A1F9DF0E532C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CD705396-CCEE-4E72-8B8A-67A545DFDC82} = {CD705396-CCEE-4E72-8B8A-67A545DFDC82}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD705396-CCEE-4E72-8B8A-67A545DFDC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD705396-CCEE-4E72-8B8A-67A545DFDC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD705396-CCEE-4E72-8B8A-67A545DFDC82}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CD705396-CCEE-4E72-8B8A-67A545DFDC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD705396-CCEE-4E72-8B8A-67A545DFDC82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD705396-CCEE-4E72-8B8A-67A545DFDC82}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2856F8BA-591F-4F4D-A99E-A1F9DF0E532C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2856F8BA-591F-4F4D-A99E-A1F9DF0E532C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2856F8BA-591F-4F4D-A99E-A1F9DF0E532C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2856F8BA-591F-4F4D-A99E-A1F9DF0E532C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+	EndGlobalSection
+EndGlobal
