@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiPost.MainPage"
+             BackgroundColor="Black">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="10,10"
+            Spacing="10">
+
+            <Editor
+                x:Name="EditorBody"
+                BackgroundColor="DarkGray"
+                TextColor="Black"
+                HeightRequest="200"/>
+
+            <Label
+                Text="Response type"/>
+            <Picker
+                x:Name="PickerType"
+                BackgroundColor="DarkGray"
+                TextColor="Black"
+                TitleColor="Black"
+                SelectedIndexChanged="myPicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>JsonNode</x:String>
+                        <x:String>String</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            
+
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                BackgroundColor="LightBlue"
+                TextColor="Black"/>
+
+            <Label
+                Text="Response" Margin="0,20,0,0"/>
+            <Editor
+                x:Name="EditorResponse"
+                HeightRequest="200"
+                IsReadOnly="True"
+                BackgroundColor="DarkGray"
+                TextColor="Black"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
