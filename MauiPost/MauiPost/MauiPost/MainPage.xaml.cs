@@ -7,6 +7,21 @@ using Newtonsoft.Json.Linq;
 
 namespace MauiPost;
 
+public class ClsPickerItems
+{
+    //***********************************************
+    public enum EnmItems
+    {
+        jsonNode = 0,
+        str
+    }
+
+    //public static EnmItems enmItems = new();
+
+    public static List<string> aryTypeItems 
+        = new List<string>() { "JsonNode", "String"};
+}
+
 public partial class MainPage : ContentPage
 {
 	int count = 0;
@@ -15,35 +30,40 @@ public partial class MainPage : ContentPage
     string address = "https://localhost:7027/api/login";
     JsBody bodys = new();
 
-
+    //***********************************************
     public MainPage()
-	{
+    {
 		InitializeComponent();
         client = new HttpClient();
 
+        //BindingContext = new ClsPickerItems();
+
+        Console.WriteLine(ClsPickerItems.aryTypeItems[(int)ClsPickerItems.EnmItems.jsonNode]);
+        Console.WriteLine(ClsPickerItems.aryTypeItems[(int)ClsPickerItems.EnmItems.str]);
+        PickerType.ItemsSource = ClsPickerItems.aryTypeItems;
         PickerType.SelectedIndex= 0;
+   }
 
-        //bodys.Id = "id";
-        //bodys.Pass = "pass";
-
-        strBody = "[{\r\n\t\"Id\":\"id1\",\r\n\t\"Password\":\"pass1\"\r\n},\r\n{\r\n\t\"Id\":\"id2\",\r\n\t\"Password\":\"pass2\"\r\n}]";
-        //strBody = "{\"Items\":{\"Id\":\"id1\",\"Password\":\"pass1\"},\"Items\":{\"Id\":\"id2\",\"Password\":\"pass2\"}}";
-        //strBody = "{\"Id\":\"id1\",\"Password\":\"pass1\"}";
-        //strBody = "{\r\n\"package1\": {\r\n    \"type\": \"envelope\",\r\n    \"quantity\": 1,\r\n    \"length\": 6,\r\n    \"width\": 1,\r\n    \"height\": 4\r\n},\r\n\"package2\": {\r\n    \"type\": \"box\",\r\n    \"quantity\": 2,\r\n    \"length\": 9,\r\n    \"width\": 9,\r\n    \"height\": 9\r\n}\r\n}";
-    }
-
+    //***********************************************
     private async void OnCounterClicked(object sender, EventArgs e)
-	{
+    {
         if (EditorBody.Text == "")
             return;
-        JsonNode jnBody = JsonNode.Parse(strBody);
+        //JsonNode jnBody = JsonNode.Parse(strBody);
         //JObject joBody = JObject.Parse(strBody);
         //JObject joBody = (JObject)JsonConvert.DeserializeObject(strBody);
-        jnBody = JsonNode.Parse(EditorBody.Text);
+        JsonNode jnBody = JsonNode.Parse(EditorBody.Text);
         var response = await client.PostAsJsonAsync(address, jnBody);
     }
 
+    //***********************************************
     private void myPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    //***********************************************
+    private void ClickedEdit(object sender, EventArgs e)
     {
 
     }
@@ -55,6 +75,7 @@ public partial class MainPage : ContentPage
     //}
 }
 
+    //***********************************************
 class JsBody
 {
     public string? Id { get; set; }

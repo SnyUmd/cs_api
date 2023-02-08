@@ -52,4 +52,10 @@
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3-beta1" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Reference Include="MauiCtrl">
+	    <HintPath>..\..\..\..\MauiCtrl\MauiCtrl\MauiCtrl\bin\Debug\net6.0\MauiCtrl.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
 </Project>
