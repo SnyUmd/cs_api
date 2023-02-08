@@ -8,13 +8,19 @@
         <VerticalStackLayout
             Padding="10,10"
             Spacing="10">
-
             <Editor
                 x:Name="EditorBody"
                 BackgroundColor="DarkGray"
                 TextColor="Black"
                 HeightRequest="200"/>
-
+            
+            <Button
+                Clicked="ClickedEdit"
+                VerticalOptions="Center"
+                BackgroundColor="LightBlue"
+                TextColor="Black"
+                Text="Edit"/>
+            
             <Label
                 Text="Response type"/>
             <Picker
@@ -23,19 +29,11 @@
                 TextColor="Black"
                 TitleColor="Black"
                 SelectedIndexChanged="myPicker_SelectedIndexChanged">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>JsonNode</x:String>
-                        <x:String>String</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
             </Picker>
-            
-
 
             <Button
                 x:Name="CounterBtn"
-                Text="Click me"
+                Text="Access"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 BackgroundColor="LightBlue"
