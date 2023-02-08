@@ -5,7 +5,7 @@
 using System.ComponentModel;
 using System.Net.Http.Json;
 using System.Text;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 /*
 RequestBody rb = new RequestBody();
@@ -25,25 +25,20 @@ string apiAddress;
 apiAddress = "https://localhost:7027/api/login";
 
 //---------------------------------------------------------------
-
 var body_rb = JsonConvert.SerializeObject(rb);
 var content = new StringContent(body_rb, Encoding.UTF8, "application/json");
 var response = await client.PostAsync(apiAddress, content);
-
 //---------------------------------------------------------------
 
 //or
 
 //---------------------------------------------------------------
-
 // POST メソッドで JSON の Body のリクエストを投げる
 //var response = await client.PostAsJsonAsync(
 //    //"http://localhost:5130/?apiKey=hogehoge", rb);
 //    "https://localhost:7029/?apiKey=hogehoge", rb);
 
-
 //var response = await client.PostAsJsonAsync("https://localhost:7027/api/login", rb);
-
 //---------------------------------------------------------------
 
 // レスポンスのステータスコードが成功していたら Answer の値を出力
